@@ -1,3 +1,28 @@
-[build-system]
-requires = ["setuptools"]
-build-backend = "setuptools.build_meta"
+# Dependencies from requirements.txt for the local simulation environment.
+# Package metadata and installation are still defined by setup.py.
+[dependency-groups]
+dev = [
+    "ipykernel>=7.3.0",
+]
+environment = [
+    "cloudpickle",
+    "h5py",
+    "joblib",
+    "jupyter",
+    "matplotlib",
+    "meshpy",
+    "numba",
+    "numpy",
+    "pint",
+    "pytest",
+    "pytest-cov",
+    "scipy",
+    "shapely",
+    "tqdm",
+]
+
+[tool.uv]
+default-groups = ["environment"]
+
+[tool.uv.dependency-groups]
+environment = { requires-python = "==3.12.*" }
